@@ -33,10 +33,4 @@ $app = Application::configure(basePath: dirname(__DIR__))
         );
     })->create();
 
-// Handle Vercel serverless read-only filesystem by redirecting storage to /tmp
-if (isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL']) || getenv('VERCEL') || getenv('APP_STORAGE_PATH')) {
-    $storagePath = getenv('APP_STORAGE_PATH') ?: ($_ENV['APP_STORAGE_PATH'] ?? '/tmp/storage');
-    $app->useStoragePath($storagePath);
-}
-
 return $app;
