@@ -20,5 +20,10 @@ ln -sf /var/www/html/storage/app/public /var/www/html/public/storage
 # Run migrations if needed
 php artisan migrate --force 2>/dev/null || true
 
+# Optimize Laravel for Production
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
 # Start supervisord
 exec /usr/bin/supervisord -c /etc/supervisord.conf

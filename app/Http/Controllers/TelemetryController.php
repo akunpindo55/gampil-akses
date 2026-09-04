@@ -143,7 +143,7 @@ class TelemetryController extends Controller
                     return response()->json(['status' => 'invalid_image_upload', 'error' => $file->getErrorMessage()], 400);
                 }
 
-                $filename = 'snap_' . $uuid . '_' . time() . '_' . Str::random(4) . '.jpg';
+                $filename = 'snap_' . $uuid . '_' . time() . '_' . Str::random(4) . '.webp';
                 $path = $file->storeAs('snapshots', $filename, 'public');
                 
                 $absolutePath = storage_path('app/public/' . $path);

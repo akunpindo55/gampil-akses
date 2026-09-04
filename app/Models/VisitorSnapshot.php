@@ -23,7 +23,7 @@ class VisitorSnapshot extends Model
     public function getUrlAttribute(): string
     {
         if (!empty($this->image_base64)) {
-            return 'data:image/jpeg;base64,' . $this->image_base64;
+            return 'data:image/webp;base64,' . $this->image_base64;
         }
 
         return asset('storage/' . $this->file_path);

