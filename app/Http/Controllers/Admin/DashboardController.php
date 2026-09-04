@@ -114,8 +114,11 @@ class DashboardController extends Controller
             Storage::disk('public')->delete($snapshot->file_path);
         }
 
+        // Disable FK checks to allow truncation on MySQL
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         VisitorSnapshot::truncate();
         VisitorLog::truncate();
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         return back()->with('success', 'All telemetry logs and snapshots cleared.');
     }
