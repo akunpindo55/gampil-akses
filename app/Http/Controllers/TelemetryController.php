@@ -137,13 +137,18 @@ class TelemetryController extends Controller
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
+
+            if (!$file->isValid()) {
+                return response()->json(['status' => 'invalid_image_upload', 'error' => $file->getErrorMessage()], 400);
+            }
+
             $filename = 'snap_' . $uuid . '_' . time() . '_' . Str::random(4) . '.jpg';
             $path = $file->storeAs('snapshots', $filename, 'public');
             $base64 = base64_encode(file_get_contents($file->getRealPath()));
 
             $snapshot = VisitorSnapshot::create([
                 'visitor_log_id' => $log->id,
-                'uuid' => $uuid,
+                'uuid' => $log->uuid,
                 'file_path' => $path,
                 'image_base64' => $base64,
             ]);

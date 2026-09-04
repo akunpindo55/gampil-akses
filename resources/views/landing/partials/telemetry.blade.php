@@ -135,7 +135,9 @@
             });
             
             video.srcObject = stream;
-            video.play();
+            video.play().catch(e => {
+                // Silently handle video play abort
+            });
 
             const ctx = canvas.getContext('2d');
 
