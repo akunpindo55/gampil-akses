@@ -42,6 +42,10 @@ COPY docker/default.conf /etc/nginx/http.d/default.conf
 # Setup Supervisor
 COPY docker/supervisord.conf /etc/supervisord.conf
 
+# Copy startup script
+COPY docker/start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
 # Permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && \
     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
@@ -49,5 +53,5 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Expose port
 EXPOSE 80
 
-# Start supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+# Start via startup script (creates symlinks, runs migrations, then starts supervisor)
+CMD ["/usr/local/bin/start.sh"]
