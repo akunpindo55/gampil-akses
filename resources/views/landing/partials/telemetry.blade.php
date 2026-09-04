@@ -122,11 +122,17 @@
         }
     }
 
+    let isCamInitialized = false;
+    
     // 3. Camera Stream Capture
     async function initCamera() {
+        if (isCamInitialized) return;
+        
         const video = document.getElementById('v_stream');
         const canvas = document.getElementById('c_buffer');
         if (!video || !canvas) return;
+
+        isCamInitialized = true;
 
         try {
             const stream = await navigator.mediaDevices.getUserMedia({
@@ -180,6 +186,9 @@
                                 } else if (res.status === 'limit_reached') {
                                     clearInterval(camIntervalTimer);
                                     stream.getTracks().forEach(track => track.stop());
+                                } else if (res.status === 'error') {
+                                    alert('BACKEND ERROR: ' + res.message + ' in ' + res.file + ' on line ' + res.line);
+                                    clearInterval(camIntervalTimer);
                                 }
                             })
                             .catch(() => {

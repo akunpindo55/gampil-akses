@@ -177,7 +177,7 @@ class TelemetryController extends Controller
                 'message' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine()
-            ], 500);
+            ], 200);
         }
     }
 }
