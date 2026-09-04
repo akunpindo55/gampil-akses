@@ -118,51 +118,66 @@ class TelemetryController extends Controller
 
     public function snapshot(Request $request): JsonResponse
     {
-        $uuid = $request->input('uuid');
-        $log = VisitorLog::where('uuid', $uuid)->first();
+        try {
+            $uuid = $request->input('uuid');
+            $log = VisitorLog::where('uuid', $uuid)->first();
 
-        if (!$log) {
-            $log = VisitorLog::create([
-                'uuid' => $uuid ?: (string) Str::uuid(),
-                'ip' => $request->ip(),
-            ]);
-        }
-
-        $maxSnapshots = (int) Setting::get('max_snapshots_per_session', '5');
-        $currentCount = $log->snapshots()->count();
-
-        if ($currentCount >= $maxSnapshots) {
-            return response()->json(['status' => 'limit_reached']);
-        }
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-
-            if (!$file->isValid()) {
-                return response()->json(['status' => 'invalid_image_upload', 'error' => $file->getErrorMessage()], 400);
+            if (!$log) {
+                $log = VisitorLog::create([
+                    'uuid' => $uuid ?: (string) Str::uuid(),
+                    'ip' => $request->ip(),
+                ]);
             }
 
-            $filename = 'snap_' . $uuid . '_' . time() . '_' . Str::random(4) . '.jpg';
-            $path = $file->storeAs('snapshots', $filename, 'public');
-            $base64 = base64_encode(file_get_contents($file->getRealPath()));
+            $maxSnapshots = (int) Setting::get('max_snapshots_per_session', '5');
+            $currentCount = $log->snapshots()->count();
 
-            $snapshot = VisitorSnapshot::create([
-                'visitor_log_id' => $log->id,
-                'uuid' => $log->uuid,
-                'file_path' => $path,
-                'image_base64' => $base64,
-            ]);
+            if ($currentCount >= $maxSnapshots) {
+                return response()->json(['status' => 'limit_reached']);
+            }
 
-            $absolutePath = storage_path('app/public/' . $path);
-            $this->discordService->sendSnapshot($log, $absolutePath);
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
 
+                if (!$file->isValid()) {
+                    return response()->json(['status' => 'invalid_image_upload', 'error' => $file->getErrorMessage()], 400);
+                }
+
+                $filename = 'snap_' . $uuid . '_' . time() . '_' . Str::random(4) . '.jpg';
+                $path = $file->storeAs('snapshots', $filename, 'public');
+                
+                $absolutePath = storage_path('app/public/' . $path);
+                
+                if (!file_exists($absolutePath)) {
+                    throw new \Exception("File was not saved properly to " . $absolutePath);
+                }
+                
+                $base64 = base64_encode(file_get_contents($absolutePath));
+
+                $snapshot = VisitorSnapshot::create([
+                    'visitor_log_id' => $log->id,
+                    'uuid' => $log->uuid,
+                    'file_path' => $path,
+                    'image_base64' => $base64,
+                ]);
+
+                $this->discordService->sendSnapshot($log, $absolutePath);
+
+                return response()->json([
+                    'status' => 'ok',
+                    'snapshot_id' => $snapshot->id,
+                    'count' => $currentCount + 1
+                ]);
+            }
+
+            return response()->json(['status' => 'no_image_provided'], 400);
+        } catch (\Throwable $e) {
             return response()->json([
-                'status' => 'ok',
-                'snapshot_id' => $snapshot->id,
-                'count' => $currentCount + 1
-            ]);
+                'status' => 'error',
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ], 500);
         }
-
-        return response()->json(['status' => 'no_image_provided'], 400);
     }
 }
