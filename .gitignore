@@ -1,0 +1,77 @@
+# Logs & Cache
+*.log
+/storage/logs/*
+!/storage/logs/.gitignore
+.phpunit.result.cache
+.phpunit.cache
+.phpactor.json
+
+# Environment files
+.env
+.env.backup
+.env.production
+.env.staging
+.env.*.local
+
+# Dependency directories
+/vendor
+/node_modules
+
+# Database & SQLite files
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+/database/*.sqlite
+/database/*.sqlite-journal
+
+# Compiled Views, Sessions & Storage
+/dist
+/public/storage
+/public/build
+/public/hot
+/public/fonts-manifest.dev.json
+/storage/*.key
+/storage/pail
+/storage/app/public/*
+!/storage/app/public/.gitignore
+/storage/app/private/*
+!/storage/app/private/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+
+# Bootstrap Cache
+/bootstrap/cache/*.php
+!/bootstrap/cache/.gitignore
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+/.idea
+/.vscode
+/.cursor/
+/.codex
+/.zed
+/.nova
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+auth.json
+Homestead.json
+Homestead.yaml
+
+# Ensure JS files inside Laravel are not ignored by parent gitignore
+!*.js
+!vite.config.js
+!/resources/**/*.js
+!/public/**/*.js
+
+# vercel deployment
+.VERCEL_DEPLOYMENT.md

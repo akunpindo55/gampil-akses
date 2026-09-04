@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bantuan & Informasi Digital</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue: #1268df;
+      --blue-dark: #084da8;
+      --blue-soft: #eef6ff;
+      --text: #182230;
+      --muted: #667085;
+      --border: #e5eaf0;
+      --white: #fff;
+      --green: #16a34a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1120px;
+      height: 72px;
+      margin: auto;
+      padding: 0 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    .logo-icon {
+      width: 37px;
+      height: 37px;
+      border-radius: 12px;
+
+      background: linear-gradient(
+        135deg,
+        #1884ff,
+        #0755ba
+      );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: #4d5968;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-chat {
+      background: var(--blue);
+      color: #fff !important;
+      padding: 10px 19px;
+      border-radius: 25px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(45, 143, 255, .16),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #f7fbff,
+          #fff
+        );
+
+      padding: 82px 22px 80px;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      background: #e8f3ff;
+      color: var(--blue);
+
+      padding: 8px 14px;
+      border-radius: 30px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #21c66d;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 590px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      background: var(--blue);
+      color: #fff;
+
+      padding: 15px 25px;
+      border-radius: 10px;
+
+      font-size: 15px;
+      font-weight: 700;
+
+      box-shadow: 0 9px 24px rgba(18,104,223,.23);
+
+      transition: .2s;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      background: var(--blue-dark);
+    }
+
+    .secondary-button {
+      padding: 14px 22px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      font-size: 15px;
+      font-weight: 700;
+      background: #fff;
+    }
+
+    .trust {
+      margin-top: 25px;
+      color: #8a94a3;
+      font-size: 12px;
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .visual-card {
+      background: #fff;
+      border: 1px solid #e7edf4;
+      border-radius: 25px;
+      padding: 25px;
+
+      box-shadow:
+        0 25px 70px rgba(22, 70, 120, .12);
+    }
+
+    .visual-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        #4da1ff,
+        #1268df
+      );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+      font-weight: 800;
+    }
+
+    .online {
+      font-size: 12px;
+      color: var(--green);
+    }
+
+    .chat-window {
+      padding: 25px 0 10px;
+    }
+
+    .message {
+      width: fit-content;
+      max-width: 85%;
+
+      padding: 12px 15px;
+      border-radius: 15px;
+
+      font-size: 14px;
+      margin-bottom: 13px;
+    }
+
+    .message.left {
+      background: #f0f3f6;
+      border-bottom-left-radius: 4px;
+    }
+
+    .message.right {
+      background: var(--blue);
+      color: #fff;
+      margin-left: auto;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-button {
+      width: 100%;
+      border: 0;
+
+      padding: 15px;
+      border-radius: 11px;
+
+      background: var(--blue);
+      color: #fff;
+
+      font-size: 15px;
+      font-weight: 700;
+
+      cursor: pointer;
+    }
+
+    /* =========================
+       BENEFITS
+    ========================= */
+
+    .section {
+      padding: 80px 22px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 45px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .benefit {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: #fff;
+
+      transition: .2s;
+    }
+
+    .benefit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(20,60,100,.08);
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 13px;
+
+      background: var(--blue-soft);
+      color: var(--blue);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 22px;
+
+      margin-bottom: 18px;
+    }
+
+    .benefit h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .how {
+      background: #f7faff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .step-number {
+      width: 52px;
+      height: 52px;
+      margin: auto auto 17px;
+
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 80px 22px;
+    }
+
+    .cta-box {
+      max-width: 1080px;
+      margin: auto;
+
+      border-radius: 25px;
+
+      padding: 55px;
+
+      text-align: center;
+
+      color: #fff;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(255,255,255,.2),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          #0757bd,
+          #1884ff
+        );
+    }
+
+    .cta-box h2 {
+      font-size: 36px;
+      line-height: 1.2;
+      margin-bottom: 13px;
+    }
+
+    .cta-box p {
+      color: rgba(255,255,255,.82);
+      max-width: 620px;
+      margin: 0 auto 25px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      background: #fff;
+      color: var(--blue);
+
+      padding: 14px 27px;
+      border-radius: 10px;
+
+      font-weight: 800;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+      max-width: 760px;
+      margin: auto;
+    }
+
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+      position: relative;
+      padding-right: 30px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      font-size: 22px;
+      color: var(--blue);
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      padding-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #111d2d;
+      color: #fff;
+      padding: 55px 22px 25px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 45px;
+
+      padding-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .footer-desc {
+      color: #9ca9ba;
+      max-width: 290px;
+      font-size: 13px;
+    }
+
+    .footer-column h4 {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #9ca9ba;
+      font-size: 13px;
+      margin-bottom: 9px;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 20px;
+
+      color: #718096;
+      font-size: 12px;
+    }
+
+    /* =========================
+       FLOATING CHAT
+    ========================= */
+
+    .floating-chat {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+
+      z-index: 1000;
+
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+
+      background: #18a957;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 25px;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,.2);
+
+      animation: pulse 2.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% {
+        box-shadow: 0 8px 25px rgba(0,0,0,.2);
+      }
+
+      50% {
+        box-shadow:
+          0 8px 25px rgba(0,0,0,.2),
+          0 0 0 10px rgba(24,169,87,.12);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .benefits,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width: 550px) {
+
+      .nav {
+        height: 65px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 48px 18px 55px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .primary-button,
+      .secondary-button {
+        text-align: center;
+        width: 100%;
+      }
+
+      .visual-card {
+        padding: 18px;
+      }
+
+      .section {
+        padding: 60px 18px;
+      }
+
+      .section-title h2 {
+        font-size: 29px;
+      }
+
+      .cta {
+        padding: 55px 18px;
+      }
+
+      .cta-box {
+        padding: 40px 23px;
+      }
+
+      .cta-box h2 {
+        font-size: 29px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <nav class="nav">
+
+```
+  <a href="#" class="logo">
+    <span class="logo-icon">P</span>
+    PayKita
+  </a>
+
+  <div class="nav-links">
+    <a href="#manfaat">Manfaat</a>
+    <a href="#cara">Cara Kerja</a>
+    <a href="#faq">FAQ</a>
+
+    <a
+      href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya."
+      class="nav-chat"
+    >
+      Chat Sekarang
+    </a>
+  </div>
+
+</nav>
+```
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+```
+<div class="hero-inner">
+
+  <div>
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Layanan Informasi Online
+    </div>
+
+    <h1>
+      Butuh Bantuan?
+      <span>Chat Langsung</span>
+      dengan Kami.
+    </h1>
+
+    <p class="hero-text">
+      Punya pertanyaan atau ingin mendapatkan informasi lebih lanjut?
+      Tim kami siap membantu menjawab pertanyaan Anda dengan cepat dan
+      mudah melalui chat.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20mendapatkan%20informasi."
+        class="primary-button"
+      >
+        💬 Chat Sekarang
+      </a>
+
+      <a href="#cara" class="secondary-button">
+        Pelajari Cara Kerjanya
+      </a>
+
+    </div>
+
+    <div class="trust">
+      ✓ Mudah digunakan &nbsp; • &nbsp;
+      ✓ Respon cepat &nbsp; • &nbsp;
+      ✓ Tanpa proses rumit
+    </div>
+
+  </div>
+
+
+  <!-- CHAT PREVIEW -->
+
+  <div class="hero-visual">
+
+    <div class="visual-card">
+
+      <div class="visual-header">
+
+        <div class="avatar">
+          P
+        </div>
+
+        <div>
+          <strong>Customer Support</strong>
+
+          <div class="online">
+            ● Online sekarang
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="chat-window">
+
+        <div class="message left">
+          Halo 👋 Ada yang bisa kami bantu?
+        </div>
+
+        <div class="message right">
+          Saya ingin mendapatkan informasi.
+        </div>
+
+        <div class="message left">
+          Tentu. Silakan klik tombol di bawah
+          untuk memulai percakapan.
+        </div>
+
+      </div>
+
+
+      <a
+        href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya."
+        class="chat-button"
+      >
+        💬 Mulai Chat
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- BENEFITS -->
+
+  <section class="section" id="manfaat">
+
+```
+<div class="container">
+
+  <div class="section-title">
+
+    <h2>
+      Kenapa Sebaiknya Mulai Chat?
+    </h2>
+
+    <p>
+      Dapatkan informasi yang Anda butuhkan tanpa harus melalui proses
+      yang panjang.
+    </p>
+
+  </div>
+
+
+  <div class="benefits">
+
+    <div class="benefit">
+
+      <div class="benefit-icon">
+        ⚡
+      </div>
+
+      <h3>Respon Cepat</h3>
+
+      <p>
+        Sampaikan pertanyaan Anda secara langsung dan dapatkan informasi
+        yang relevan.
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <div class="benefit-icon">
+        💬
+      </div>
+
+      <h3>Komunikasi Mudah</h3>
+
+      <p>
+        Tidak perlu mengisi formulir yang panjang. Cukup mulai percakapan
+        melalui chat.
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <div class="benefit-icon">
+        ✓
+      </div>
+
+      <h3>Praktis</h3>
+
+      <p>
+        Gunakan perangkat yang Anda miliki untuk mendapatkan bantuan
+        kapan pun Anda membutuhkannya.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- HOW IT WORKS -->
+
+  <section class="section how" id="cara">
+
+```
+<div class="container">
+
+  <div class="section-title">
+
+    <h2>
+      Hanya 3 Langkah
+    </h2>
+
+    <p>
+      Memulai percakapan sangat sederhana.
+    </p>
+
+  </div>
+
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">
+        1
+      </div>
+
+      <h3>
+        Klik Chat
+      </h3>
+
+      <p>
+        Tekan tombol "Chat Sekarang" pada halaman ini.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        2
+      </div>
+
+      <h3>
+        Sampaikan Pertanyaan
+      </h3>
+
+      <p>
+        Jelaskan kebutuhan atau pertanyaan Anda melalui chat.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        3
+      </div>
+
+      <h3>
+        Dapatkan Informasi
+      </h3>
+
+      <p>
+        Tim kami akan membantu memberikan informasi yang Anda perlukan.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+```
+<div class="cta-box">
+
+  <h2>
+    Masih Punya Pertanyaan?
+  </h2>
+
+  <p>
+    Jangan ragu untuk bertanya. Mulai percakapan sekarang dan dapatkan
+    informasi yang Anda butuhkan.
+  </p>
+
+  <a
+    href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20mendapatkan%20informasi."
+    class="cta-button"
+  >
+    💬 Chat Sekarang
+  </a>
+
+</div>
+```
+
+  </section>
+
+  <!-- FAQ -->
+
+  <section class="section" id="faq">
+
+```
+<div class="container">
+
+  <div class="section-title">
+
+    <h2>
+      Pertanyaan yang Sering Ditanyakan
+    </h2>
+
+    <p>
+      Beberapa pertanyaan umum sebelum memulai chat.
+    </p>
+
+  </div>
+
+
+  <div class="faq">
+
+    <details>
+      <summary>
+        Bagaimana cara memulai chat?
+      </summary>
+
+      <p>
+        Klik salah satu tombol "Chat Sekarang" yang tersedia di halaman
+        ini. Anda akan diarahkan ke aplikasi chat untuk memulai
+        percakapan.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>
+        Apakah saya harus mengisi formulir?
+      </summary>
+
+      <p>
+        Tidak. Anda dapat langsung memulai percakapan dan menyampaikan
+        kebutuhan Anda melalui chat.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>
+        Informasi apa yang perlu saya sampaikan?
+      </summary>
+
+      <p>
+        Cukup jelaskan pertanyaan atau kebutuhan Anda secara singkat.
+        Jangan pernah memberikan PIN, password, kode OTP, atau informasi
+        keamanan akun.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>
+        Apakah chat ini gratis?
+      </summary>
+
+      <p>
+        Percakapan melalui aplikasi chat mengikuti ketentuan layanan
+        aplikasi yang Anda gunakan.
+      </p>
+    </details>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+```
+<div class="footer-inner">
+
+  <div class="footer-grid">
+
+    <div>
+
+      <div class="footer-logo">
+        PayKita
+      </div>
+
+      <p class="footer-desc">
+        Platform informasi digital untuk membantu pengguna mendapatkan
+        informasi dengan mudah dan nyaman.
+      </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Informasi</h4>
+
+      <a href="#manfaat">Manfaat</a>
+      <a href="#cara">Cara Kerja</a>
+      <a href="#faq">FAQ</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Bantuan</h4>
+
+      <a href="#">Pusat Bantuan</a>
+      <a href="#">Hubungi Kami</a>
+      <a href="#">Kebijakan Privasi</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Kontak</h4>
+
+      <a href="https://wa.me/6281234567890">
+        WhatsApp
+      </a>
+
+      <a href="#">
+        Email
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+    © 2026 PayKita. Semua hak dilindungi.
+  </div>
+
+</div>
+```
+
+  </footer>
+
+  <!-- FLOATING CHAT -->
+
+<a
+href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya."
+class="floating-chat"
+aria-label="Chat sekarang"
+
+>
+
+```
+💬
+```
+
+  </a>
+
+</body>
+</html>

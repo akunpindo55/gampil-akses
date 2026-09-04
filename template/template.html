@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panduan klaim saldo digital dengan aman dan efektif.">
+  <title>Cara Klaim Saldo Digital dengan Aman dan Efektif</title>
+
+  <style>
+    :root {
+      --primary: #1473e6;
+      --primary-dark: #0759bd;
+      --text: #202124;
+      --muted: #777;
+      --border: #e7e7e7;
+      --light: #f6f9fc;
+      --white: #ffffff;
+      --shadow: 0 8px 30px rgba(20, 45, 80, .08);
+      --radius: 18px;
+      --container: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: var(--container);
+      height: 76px;
+      margin: auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1683ff, #0759bd);
+      position: relative;
+    }
+
+    .brand-mark::after {
+      content: "";
+      width: 15px;
+      height: 15px;
+      border: 4px solid #fff;
+      border-left-color: transparent;
+      border-radius: 50%;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: #444;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-button {
+      padding: 11px 19px;
+      background: var(--primary);
+      color: white !important;
+      border-radius: 25px;
+    }
+
+    .nav-button:hover {
+      background: var(--primary-dark);
+    }
+
+    .hamburger {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO ARTICLE
+    ========================= */
+
+    .article-header {
+      max-width: 920px;
+      margin: 70px auto 35px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .category {
+      display: inline-block;
+      padding: 7px 16px;
+      border-radius: 30px;
+      background: #eaf4ff;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .article-header h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+
+    .date {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 35px auto 60px;
+      padding: 0 24px;
+    }
+
+    .hero-image {
+      height: 480px;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.9), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,.4), transparent 28%),
+        linear-gradient(135deg, #0876e8, #54b5ff 55%, #d8f2ff);
+      position: relative;
+    }
+
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      top: -100px;
+      right: 10%;
+    }
+
+    .hero-image::after {
+      content: "SAFE";
+      position: absolute;
+      right: 10%;
+      bottom: 70px;
+      color: rgba(255,255,255,.92);
+      font-size: 70px;
+      font-weight: 900;
+      letter-spacing: 8px;
+      transform: rotate(-8deg);
+    }
+
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px;
+      color: #fff;
+    }
+
+    .hero-content small {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content strong {
+      max-width: 550px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+    }
+
+    /* =========================
+       ARTICLE BODY
+    ========================= */
+
+    .article-layout {
+      max-width: 1060px;
+      margin: auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 220px;
+      gap: 60px;
+    }
+
+    .article-content {
+      font-size: 17px;
+      color: #3f3f3f;
+    }
+
+    .article-content > p {
+      margin-bottom: 22px;
+    }
+
+    .article-content h2 {
+      color: #171717;
+      font-size: 30px;
+      line-height: 1.25;
+      margin: 48px 0 18px;
+      letter-spacing: -.5px;
+    }
+
+    .article-content h3 {
+      color: #202020;
+      font-size: 21px;
+      margin: 28px 0 10px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 15px 0 25px 25px;
+    }
+
+    .article-content li {
+      margin-bottom: 10px;
+      padding-left: 5px;
+    }
+
+    .article-content strong {
+      color: #222;
+    }
+
+    /* =========================
+       READ MORE BOX
+    ========================= */
+
+    .read-more {
+      background: #f1f7ff;
+      border-radius: 15px;
+      padding: 21px 24px;
+      margin: 28px 0;
+      border-left: 4px solid var(--primary);
+    }
+
+    .read-more span {
+      display: block;
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: .7px;
+    }
+
+    .read-more a {
+      font-weight: 700;
+      color: #155fb5;
+    }
+
+    .read-more a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       STEPS
+    ========================= */
+
+    .step {
+      margin: 25px 0;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 5px 20px rgba(0,0,0,.035);
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      margin-top: 0;
+    }
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .sidebar {
+      position: relative;
+    }
+
+    .sidebar-inner {
+      position: sticky;
+      top: 105px;
+    }
+
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .toc {
+      border-left: 2px solid #e9e9e9;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 0 8px 15px;
+      color: #777;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .toc a:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       RELATED ARTICLES
+    ========================= */
+
+    .related-section {
+      background: var(--light);
+      padding: 65px 24px 75px;
+    }
+
+    .related-container {
+      max-width: var(--container);
+      margin: auto;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      gap: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .section-heading a {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 17px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-image {
+      height: 170px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-image.one {
+      background: linear-gradient(135deg, #0b75e8, #a4ddff);
+    }
+
+    .card-image.two {
+      background: linear-gradient(135deg, #7447d7, #c8b7ff);
+    }
+
+    .card-image.three {
+      background: linear-gradient(135deg, #09a57a, #a7f0d4);
+    }
+
+    .card-image::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 25px solid rgba(255,255,255,.2);
+      right: 25px;
+      top: 20px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-date {
+      color: #999;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      line-height: 1.35;
+      margin-bottom: 15px;
+    }
+
+    .card-link {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #101c2c;
+      color: #fff;
+      padding: 65px 24px 25px;
+    }
+
+    .footer-container {
+      max-width: var(--container);
+      margin: auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 45px;
+      padding-bottom: 45px;
+    }
+
+    .footer-brand {
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .footer-description {
+      color: #aeb8c5;
+      font-size: 13px;
+      max-width: 260px;
+      line-height: 1.7;
+    }
+
+    .footer-column h4 {
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #aeb8c5;
+      font-size: 13px;
+      margin-bottom: 11px;
+      transition: .2s;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #8996a6;
+      font-size: 12px;
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    .back-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--primary);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 7px 20px rgba(0,0,0,.18);
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 76px;
+        background: #fff;
+        padding: 20px 24px;
+        border-bottom: 1px solid #eee;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-brand-column {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        height: 68px;
+      }
+
+      .nav-links {
+        top: 68px;
+      }
+
+      .brand {
+        font-size: 21px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .article-header {
+        margin-top: 45px;
+      }
+
+      .article-header h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero {
+        padding: 0 14px;
+      }
+
+      .hero-image {
+        height: 360px;
+        border-radius: 18px;
+      }
+
+      .hero-content {
+        padding: 30px;
+      }
+
+      .hero-content strong {
+        font-size: 36px;
+      }
+
+      .hero-image::after {
+        font-size: 42px;
+        bottom: 35px;
+      }
+
+      .article-layout {
+        padding: 0 20px 60px;
+      }
+
+      .article-content {
+        font-size: 16px;
+      }
+
+      .article-content h2 {
+        font-size: 26px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 20px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand-column {
+        grid-column: auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="topbar">
+    <nav class="navbar">
+
+```
+  <a href="#" class="brand">
+    <span class="brand-mark"></span>
+    PayKita
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#">Personal</a>
+    <a href="#">Business</a>
+    <a href="#">Tentang Kami</a>
+    <a href="#">Blog</a>
+    <a href="#">Bantuan</a>
+    <a href="#" class="nav-button">Download App</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    ☰
+  </button>
+
+</nav>
+```
+
+  </header>
+
+  <!-- =========================
+       ARTICLE HEADER
+  ========================== -->
+
+  <main>
+
+```
+<section class="article-header">
+
+  <div class="category">
+    PAYKITA INFO
+  </div>
+
+  <h1>
+    Cara Klaim Saldo Digital dengan Aman dan Efektif
+  </h1>
+
+  <div class="date">
+    27 Agustus 2026
+  </div>
+
+</section>
+
+
+<!-- =========================
+     HERO IMAGE
+========================== -->
+
+<section class="hero">
+
+  <div class="hero-image">
+
+    <div class="hero-content">
+      <small>PANDUAN DIGITAL</small>
+      <strong>
+        Klaim Saldo dengan Aman &amp; Nyaman
+      </strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ARTICLE CONTENT
+========================== -->
+
+<section class="article-layout">
+
+  <article class="article-content">
+
+    <p>
+      Di era digital seperti sekarang, dompet digital menjadi salah satu
+      alat pembayaran yang praktis untuk digunakan sehari-hari. Selain
+      memudahkan transaksi, berbagai layanan digital juga menghadirkan
+      fitur berbagi saldo, hadiah, dan promosi yang menarik.
+    </p>
+
+    <p>
+      Namun, kemudahan tersebut perlu diimbangi dengan kewaspadaan.
+      Sebelum membuka sebuah tautan atau mengikuti program saldo digital,
+      pastikan sumbernya dapat dipercaya dan jangan pernah memberikan
+      informasi keamanan akun kepada orang lain.
+    </p>
+
+
+    <h2 id="apa-itu">
+      Apa Itu Fitur Berbagi Saldo?
+    </h2>
+
+    <p>
+      Fitur berbagi saldo memungkinkan seseorang mengirimkan sejumlah
+      saldo kepada pengguna lain melalui tautan atau kode tertentu.
+      Penerima kemudian dapat membuka tautan tersebut untuk melihat
+      apakah saldo masih tersedia.
+    </p>
+
+    <div class="read-more">
+      <span>Baca Juga</span>
+      <a href="#">
+        Cara Menghindari Penipuan Online: Tips Menjaga Akun Tetap Aman
+      </a>
+    </div>
+
+
+    <h2 id="persiapan">
+      Persiapan Awal Sebelum Klaim
+    </h2>
+
+    <p>
+      Sebelum melakukan klaim, ada beberapa hal sederhana yang sebaiknya
+      diperiksa terlebih dahulu.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Pastikan akun aktif:</strong> gunakan akun yang memang
+        Anda miliki dan dapat diakses dengan normal.
+      </li>
+
+      <li>
+        <strong>Gunakan aplikasi resmi:</strong> selalu perbarui aplikasi
+        melalui toko aplikasi resmi.
+      </li>
+
+      <li>
+        <strong>Periksa sumber tautan:</strong> jangan sembarangan
+        membuka tautan yang berasal dari sumber tidak dikenal.
+      </li>
+
+      <li>
+        <strong>Jaga informasi keamanan:</strong> PIN, OTP, dan password
+        tidak boleh diberikan kepada siapa pun.
+      </li>
+    </ul>
+
+
+    <h2 id="langkah">
+      Langkah-Langkah Klaim Saldo
+    </h2>
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Dapatkan Tautan dari Sumber Terpercaya</h3>
+      <p>
+        Pastikan tautan diberikan oleh teman, keluarga, komunitas,
+        merchant, atau sumber resmi yang memang Anda kenal.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Periksa Alamat Website</h3>
+      <p>
+        Sebelum melanjutkan, perhatikan alamat halaman yang terbuka.
+        Waspadai website dengan nama yang menyerupai layanan resmi tetapi
+        menggunakan domain yang berbeda.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Ikuti Petunjuk pada Aplikasi</h3>
+      <p>
+        Jika tautan aman dan mengarah ke layanan resmi, ikuti instruksi
+        yang ditampilkan pada aplikasi. Jangan mengikuti instruksi dari
+        pihak luar yang meminta data rahasia.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <h3>Cek Saldo</h3>
+      <p>
+        Setelah proses selesai, periksa saldo pada aplikasi resmi untuk
+        memastikan transaksi atau klaim telah berhasil.
+      </p>
+    </div>
+
+
+    <h2 id="tips">
+      Tips Aman Saat Klaim
+    </h2>
+
+    <p>
+      Penawaran saldo gratis dapat menarik perhatian banyak orang.
+      Sayangnya, situasi tersebut juga dapat dimanfaatkan oleh pihak
+      tidak bertanggung jawab.
+    </p>
+
+    <ul>
+      <li>
+        Jangan memberikan PIN kepada siapa pun.
+      </li>
+
+      <li>
+        Jangan membagikan kode OTP melalui chat atau telepon.
+      </li>
+
+      <li>
+        Jangan mengirimkan uang untuk mendapatkan hadiah.
+      </li>
+
+      <li>
+        Jangan memasang file APK dari sumber tidak dikenal.
+      </li>
+
+      <li>
+        Jangan memasukkan data kartu atau password pada website yang
+        mencurigakan.
+      </li>
+
+      <li>
+        Pastikan aplikasi berasal dari toko aplikasi resmi.
+      </li>
+    </ul>
+
+
+    <h2 id="keamanan">
+      Bagaimana Mengetahui Tautan yang Aman?
+    </h2>
+
+    <p>
+      Salah satu langkah paling penting adalah memeriksa alamat website
+      sebelum memasukkan informasi apa pun. Nama website yang terlihat
+      mirip belum tentu berarti website tersebut resmi.
+    </p>
+
+    <h3>Periksa Domain</h3>
+
+    <p>
+      Perhatikan ejaan alamat website secara keseluruhan. Penipu sering
+      menggunakan nama yang dibuat sangat mirip dengan layanan asli
+      sehingga pengguna tidak menyadarinya.
+    </p>
+
+    <h3>Jangan Berikan PIN dan OTP</h3>
+
+    <p>
+      PIN dan kode OTP merupakan informasi keamanan. Pihak resmi tidak
+      seharusnya meminta Anda mengirimkan kode tersebut melalui chat
+      kepada orang lain.
+    </p>
+
+    <h3>Hindari Tawaran yang Tidak Masuk Akal</h3>
+
+    <p>
+      Berhati-hatilah terhadap tautan yang menjanjikan saldo sangat besar
+      dengan syarat memasukkan banyak data pribadi atau melakukan
+      pembayaran terlebih dahulu.
+    </p>
+
+
+    <h2 id="kesimpulan">
+      Klaim Saldo dengan Aman
+    </h2>
+
+    <p>
+      Fitur berbagi saldo dapat menjadi cara yang menyenangkan untuk
+      memberikan hadiah kepada teman, keluarga, komunitas, maupun
+      pengguna lain. Namun, keamanan tetap harus menjadi prioritas.
+    </p>
+
+    <p>
+      Selalu periksa sumber tautan, gunakan aplikasi resmi, dan jangan
+      pernah membagikan PIN, OTP, atau password kepada siapa pun.
+      Dengan langkah sederhana tersebut, pengalaman menggunakan layanan
+      digital dapat menjadi lebih aman dan nyaman.
+    </p>
+
+  </article>
+
+
+  <!-- =========================
+       SIDEBAR
+  ========================== -->
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner">
+
+      <div class="sidebar-title">
+        Dalam Artikel Ini
+      </div>
+
+      <nav class="toc">
+        <a href="#apa-itu">
+          Apa Itu Fitur Berbagi Saldo?
+        </a>
+
+        <a href="#persiapan">
+          Persiapan Awal
+        </a>
+
+        <a href="#langkah">
+          Langkah-Langkah Klaim
+        </a>
+
+        <a href="#tips">
+          Tips Aman
+        </a>
+
+        <a href="#keamanan">
+          Mengecek Keamanan
+        </a>
+
+        <a href="#kesimpulan">
+          Kesimpulan
+        </a>
+      </nav>
+
+    </div>
+
+  </aside>
+
+</section>
+
+
+<!-- =========================
+     RELATED ARTICLES
+========================== -->
+
+<section class="related-section">
+
+  <div class="related-container">
+
+    <div class="section-heading">
+
+      <h2>
+        Berita Terkait
+      </h2>
+
+      <a href="#">
+        Lihat Semua →
+      </a>
+
+    </div>
+
+
+    <div class="related-grid">
+
+      <article class="card">
+
+        <div class="card-image one"></div>
+
+        <div class="card-body">
+
+          <div class="card-date">
+            28 Agustus 2026
+          </div>
+
+          <h3>
+            Cara Menjaga Keamanan Akun Digital Anda
+          </h3>
+
+          <a href="#" class="card-link">
+            Baca Selengkapnya →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="card-image two"></div>
+
+        <div class="card-body">
+
+          <div class="card-date">
+            27 Agustus 2026
+          </div>
+
+          <h3>
+            Tips Bertransaksi Online dengan Lebih Aman
+          </h3>
+
+          <a href="#" class="card-link">
+            Baca Selengkapnya →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="card-image three"></div>
+
+        <div class="card-body">
+
+          <div class="card-date">
+            25 Agustus 2026
+          </div>
+
+          <h3>
+            Kenali Modus Penipuan Digital yang Sering Terjadi
+          </h3>
+
+          <a href="#" class="card-link">
+            Baca Selengkapnya →
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+```
+<div class="footer-container">
+
+  <div class="footer-top">
+
+    <div class="footer-brand-column">
+
+      <div class="footer-brand">
+        PayKita
+      </div>
+
+      <p class="footer-description">
+        Solusi pembayaran digital yang praktis untuk membantu kebutuhan
+        transaksi sehari-hari Anda.
+      </p>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Solusi Pembayaran</h4>
+
+      <a href="#">Payment Gateway</a>
+      <a href="#">API Pembayaran</a>
+      <a href="#">Point of Sales</a>
+      <a href="#">Bisnis</a>
+      <a href="#">Disbursement</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Personal</h4>
+
+      <a href="#">Dompet Digital</a>
+      <a href="#">Layanan Keuangan</a>
+      <a href="#">Gaya Hidup</a>
+      <a href="#">Promo</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Perusahaan</h4>
+
+      <a href="#">Tentang Kami</a>
+      <a href="#">Karier</a>
+      <a href="#">Newsroom</a>
+      <a href="#">Blog</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Bantuan</h4>
+
+      <a href="#">FAQ</a>
+      <a href="#">Hubungi Kami</a>
+      <a href="#">Syarat &amp; Ketentuan</a>
+      <a href="#">Kebijakan Privasi</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 PayKita. All Rights Reserved.
+    </span>
+
+    <span>
+      Dibuat untuk demonstrasi website.
+    </span>
+
+  </div>
+
+</div>
+```
+
+  </footer>
+
+  <!-- BACK TO TOP -->
+
+  <button class="back-top" id="backTop" aria-label="Kembali ke atas">
+    ↑
+  </button>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    // Mobile navigation
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+    });
+
+
+    // Close menu after clicking navigation
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+      });
+
+    });
+
+
+    // Back to top
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", function () {
+
+      if (window.scrollY > 500) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+
+    });
+
+
+    backTop.addEventListener("click", function () {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    // Smooth navigation for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+
+      anchor.addEventListener("click", function (event) {
+
+        const targetId = this.getAttribute("href");
+
+        if (targetId === "#") {
+          return;
+        }
+
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

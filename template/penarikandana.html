@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="description"
+content="Halaman konfirmasi penarikan dana."
+
+>
+
+  <title>Konfirmasi Penarikan Dana</title>
+
+  <style>
+    :root {
+      --primary: #1268df;
+      --primary-dark: #0954bb;
+      --success: #16a34a;
+      --success-bg: #eaf8ef;
+      --text: #182230;
+      --muted: #667085;
+      --border: #e5eaf0;
+      --background: #f5f8fc;
+      --white: #ffffff;
+      --danger: #b42318;
+      --danger-bg: #fff3f2;
+      --shadow: 0 18px 50px rgba(20, 55, 100, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+      background: var(--background);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ==============================
+       HEADER
+    ============================== */
+
+    .header {
+      height: 70px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1080px;
+      margin: auto;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 21px;
+      letter-spacing: -.5px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2e8cff,
+          #0958c4
+        );
+
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: 900;
+    }
+
+    .secure-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      color: #667085;
+      font-size: 12px;
+    }
+
+    .secure-dot {
+      width: 8px;
+      height: 8px;
+
+      background: var(--success);
+      border-radius: 50%;
+    }
+
+    /* ==============================
+       PAGE
+    ============================== */
+
+    .page {
+      padding: 50px 20px 80px;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* ==============================
+       MAIN CARD
+    ============================== */
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+    }
+
+    .card-header {
+      text-align: center;
+      padding: 36px 30px 28px;
+    }
+
+    /* ==============================
+       STATUS ICON
+    ============================== */
+
+    .status-icon {
+      width: 68px;
+      height: 68px;
+
+      margin: 0 auto 18px;
+
+      border-radius: 50%;
+
+      background: var(--success-bg);
+      color: var(--success);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 31px;
+      font-weight: 800;
+    }
+
+    .card-header h1 {
+      font-size: 29px;
+      line-height: 1.25;
+      letter-spacing: -.7px;
+      margin-bottom: 8px;
+    }
+
+    .card-header p {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 470px;
+      margin: auto;
+    }
+
+    /* ==============================
+       TRANSACTION
+    ============================== */
+
+    .transaction {
+      margin: 0 28px;
+      padding: 23px;
+
+      background: #f8fafc;
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+    }
+
+    .transaction-title {
+      font-size: 12px;
+      color: #8a94a3;
+
+      text-transform: uppercase;
+      letter-spacing: .7px;
+
+      font-weight: 700;
+
+      margin-bottom: 18px;
+    }
+
+    .amount {
+      font-size: 34px;
+      font-weight: 800;
+
+      letter-spacing: -.8px;
+
+      margin-bottom: 20px;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      gap: 20px;
+
+      font-size: 14px;
+    }
+
+    .detail .label {
+      color: var(--muted);
+    }
+
+    .detail .value {
+      font-weight: 650;
+      text-align: right;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      color: #a15c00;
+      background: #fff6df;
+
+      padding: 5px 9px;
+      border-radius: 20px;
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+
+      background: #e8a400;
+      border-radius: 50%;
+    }
+
+    /* ==============================
+       ACTION
+    ============================== */
+
+    .action {
+      padding: 27px 28px 30px;
+    }
+
+    .primary-button {
+      width: 100%;
+
+      border: 0;
+      border-radius: 11px;
+
+      padding: 15px 20px;
+
+      background: var(--primary);
+      color: #fff;
+
+      font-size: 15px;
+      font-weight: 750;
+
+      cursor: pointer;
+
+      transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .primary-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 8px 20px rgba(18,104,223,.2);
+    }
+
+    .primary-button:active {
+      transform: translateY(0);
+    }
+
+    .action-note {
+      text-align: center;
+
+      color: #8a94a3;
+      font-size: 12px;
+
+      margin-top: 12px;
+    }
+
+    /* ==============================
+       SECURITY
+    ============================== */
+
+    .security {
+      margin-top: 20px;
+
+      background: var(--danger-bg);
+
+      border: 1px solid #fecdca;
+
+      border-radius: 13px;
+
+      padding: 17px 18px;
+
+      display: flex;
+      gap: 12px;
+    }
+
+    .security-icon {
+      flex: 0 0 auto;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+
+      background: #fff;
+
+      color: var(--danger);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .security strong {
+      display: block;
+
+      color: #912018;
+      font-size: 13px;
+
+      margin-bottom: 3px;
+    }
+
+    .security p {
+      color: #8c2b24;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    /* ==============================
+       HELP
+    ============================== */
+
+    .help {
+      margin-top: 25px;
+
+      text-align: center;
+
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .help a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ==============================
+       STEPS
+    ============================== */
+
+    .steps {
+      margin-top: 35px;
+
+      display: grid;
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 12px;
+    }
+
+    .step {
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 18px 14px;
+
+      text-align: center;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+
+      margin: 0 auto 9px;
+
+      background: #eaf3ff;
+      color: var(--primary);
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    .footer {
+      text-align: center;
+
+      color: #8a94a3;
+
+      font-size: 11px;
+
+      padding: 25px 20px 35px;
+    }
+
+    .footer-links {
+      margin-top: 7px;
+
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .footer a {
+      color: #667085;
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+    }
+
+    /* ==============================
+       MODAL
+    ============================== */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(15, 23, 42, .55);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: .2s;
+
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 420px;
+
+      background: #fff;
+
+      border-radius: 18px;
+
+      padding: 28px;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.2);
+
+      transform: translateY(12px);
+
+      transition: .2s;
+    }
+
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+    }
+
+    .modal-icon {
+      width: 50px;
+      height: 50px;
+
+      border-radius: 50%;
+
+      background: #eaf8ef;
+      color: var(--success);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 15px;
+
+      font-size: 23px;
+    }
+
+    .modal h2 {
+      font-size: 21px;
+      margin-bottom: 7px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .modal-button {
+      flex: 1;
+
+      padding: 12px;
+
+      border-radius: 9px;
+
+      border: 1px solid var(--border);
+
+      background: #fff;
+
+      cursor: pointer;
+
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .modal-button.confirm {
+      border: 0;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ==============================
+       SUCCESS STATE
+    ============================== */
+
+    .success-message {
+      display: none;
+
+      margin-top: 20px;
+
+      padding: 18px;
+
+      border-radius: 13px;
+
+      background: var(--success-bg);
+
+      border: 1px solid #b7e3c5;
+
+      color: #166534;
+
+      font-size: 13px;
+
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    /* ==============================
+       RESPONSIVE
+    ============================== */
+
+    @media (max-width: 600px) {
+
+      .header {
+        height: 64px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .secure-label {
+        font-size: 10px;
+      }
+
+      .page {
+        padding:
+          25px
+          13px
+          55px;
+      }
+
+      .card-header {
+        padding:
+          30px
+          20px
+          23px;
+      }
+
+      .card-header h1 {
+        font-size: 25px;
+      }
+
+      .transaction {
+        margin: 0 15px;
+        padding: 18px;
+      }
+
+      .amount {
+        font-size: 29px;
+      }
+
+      .action {
+        padding:
+          22px
+          15px
+          25px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        display: grid;
+
+        grid-template-columns:
+          35px 1fr;
+
+        column-gap: 10px;
+
+        text-align: left;
+
+        align-items: center;
+      }
+
+      .step-number {
+        grid-row: span 2;
+        margin: 0;
+      }
+
+      .step h3 {
+        margin: 0;
+      }
+
+      .step p {
+        margin-top: 2px;
+      }
+
+      .security {
+        margin-top: 18px;
+      }
+
+      .modal-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ==============================
+       HEADER
+  =============================== -->
+
+  <header class="header">
+
+```
+<div class="header-inner">
+
+  <a href="#" class="logo">
+    <span class="logo-icon">P</span>
+    PayKita
+  </a>
+
+  <div class="secure-label">
+    <span class="secure-dot"></span>
+    Layanan Resmi
+  </div>
+
+</div>
+```
+
+  </header>
+
+  <!-- ==============================
+       MAIN
+  =============================== -->
+
+  <main class="page">
+
+```
+<div class="container">
+
+  <div class="card">
+
+    <!-- CARD HEADER -->
+
+    <div class="card-header">
+
+      <div class="status-icon">
+        ✓
+      </div>
+
+      <h1>
+        Konfirmasi Penarikan Dana
+      </h1>
+
+      <p>
+        Periksa kembali detail permintaan penarikan Anda
+        sebelum melanjutkan.
+      </p>
+
+    </div>
+
+
+    <!-- TRANSACTION -->
+
+    <div class="transaction">
+
+      <div class="transaction-title">
+        Detail Penarikan
+      </div>
+
+      <div class="amount">
+        Rp500.000
+      </div>
+
+      <div class="details">
+
+        <div class="detail">
+
+          <span class="label">
+            Nomor transaksi
+          </span>
+
+          <span class="value">
+            WD-20260829-001
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <span class="label">
+            Tanggal
+          </span>
+
+          <span class="value">
+            29 Agustus 2026
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <span class="label">
+            Metode
+          </span>
+
+          <span class="value">
+            Transfer Bank
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <span class="label">
+            Status
+          </span>
+
+          <span class="value">
+
+            <span class="status">
+              Menunggu konfirmasi
+            </span>
+
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ACTION -->
+
+    <div class="action">
+
+      <button
+        class="primary-button"
+        id="confirmButton"
+      >
+        Konfirmasi Penarikan
+      </button>
+
+      <div class="action-note">
+        Proses dilanjutkan setelah Anda mengonfirmasi transaksi.
+      </div>
+
+
+      <div
+        class="success-message"
+        id="successMessage"
+      >
+        ✓ Konfirmasi berhasil dicatat.
+        Silakan ikuti informasi berikutnya pada layanan resmi.
+      </div>
+
+
+      <!-- SECURITY NOTICE -->
+
+      <div class="security">
+
+        <div class="security-icon">
+          !
+        </div>
+
+        <div>
+
+          <strong>
+            Perhatikan keamanan akun
+          </strong>
+
+          <p>
+            Kami tidak pernah meminta PIN, password, kode OTP,
+            atau kode keamanan melalui halaman konfirmasi ini.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       HELP
+  =============================== -->
+
+  <div class="help">
+
+    Mengalami kendala dengan penarikan?
+
+    <a href="#bantuan">
+      Hubungi bantuan
+    </a>
+
+  </div>
+
+
+  <!-- ==============================
+       STEPS
+  =============================== -->
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">
+        1
+      </div>
+
+      <h3>
+        Periksa
+      </h3>
+
+      <p>
+        Pastikan detail transaksi sudah benar.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        2
+      </div>
+
+      <h3>
+        Konfirmasi
+      </h3>
+
+      <p>
+        Tekan tombol konfirmasi untuk melanjutkan.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        3
+      </div>
+
+      <h3>
+        Selesai
+      </h3>
+
+      <p>
+        Permintaan diproses oleh sistem.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </main>
+
+  <!-- ==============================
+       FOOTER
+  =============================== -->
+
+  <footer class="footer" id="bantuan">
+
+```
+<div>
+  © 2026 PayKita. Semua hak dilindungi.
+</div>
+
+<div class="footer-links">
+  <a href="#">
+    Bantuan
+  </a>
+
+  <a href="#">
+    Privasi
+  </a>
+
+  <a href="#">
+    Syarat & Ketentuan
+  </a>
+</div>
+```
+
+  </footer>
+
+  <!-- ==============================
+       CONFIRMATION MODAL
+  =============================== -->
+
+  <div
+    class="modal-overlay"
+    id="modalOverlay"
+  >
+
+```
+<div class="modal">
+
+  <div class="modal-icon">
+    ✓
+  </div>
+
+  <h2>
+    Konfirmasi Transaksi?
+  </h2>
+
+  <p>
+    Anda akan mengonfirmasi permintaan penarikan
+    sebesar <strong>Rp500.000</strong>.
+    Pastikan detail transaksi sudah benar.
+  </p>
+
+  <div class="modal-actions">
+
+    <button
+      class="modal-button"
+      id="cancelButton"
+    >
+      Periksa Lagi
+    </button>
+
+    <button
+      class="modal-button confirm"
+      id="confirmFinalButton"
+    >
+      Ya, Konfirmasi
+    </button>
+
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- ==============================
+       JAVASCRIPT
+  =============================== -->
+
+  <script>
+
+    const confirmButton =
+      document.getElementById("confirmButton");
+
+    const modalOverlay =
+      document.getElementById("modalOverlay");
+
+    const cancelButton =
+      document.getElementById("cancelButton");
+
+    const confirmFinalButton =
+      document.getElementById("confirmFinalButton");
+
+    const successMessage =
+      document.getElementById("successMessage");
+
+
+    /*
+      Buka dialog konfirmasi
+    */
+
+    confirmButton.addEventListener(
+      "click",
+      function () {
+
+        modalOverlay.classList.add("active");
+
+      }
+    );
+
+
+    /*
+      Tutup dialog
+    */
+
+    cancelButton.addEventListener(
+      "click",
+      function () {
+
+        modalOverlay.classList.remove("active");
+
+      }
+    );
+
+
+    /*
+      Konfirmasi final
+
+      Pada implementasi nyata, bagian ini
+      dapat dihubungkan ke backend/API Anda.
+    */
+
+    confirmFinalButton.addEventListener(
+      "click",
+      function () {
+
+        modalOverlay.classList.remove("active");
+
+        successMessage.classList.add("show");
+
+        confirmButton.textContent =
+          "Konfirmasi Telah Dikirim";
+
+        confirmButton.disabled = true;
+
+        confirmButton.style.opacity = "0.65";
+
+      }
+    );
+
+
+    /*
+      Tutup modal ketika klik area luar
+    */
+
+    modalOverlay.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          event.target === modalOverlay
+        ) {
+
+          modalOverlay.classList.remove(
+            "active"
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
